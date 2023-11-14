@@ -106,3 +106,9 @@ Sexo:
 ID de Usuário: 
 Senha: 
 
+Nome: 
+Idade: 
+Sexo: 
+ID de Usuário: 
+Senha: 
+

@@ -1,0 +1,8 @@
+Nome: 
+Idade: 
+Sexo: 
+Ano: 5
+Curso: jj
+Turno: vvv
+Camisa: jjj
+

@@ -35,8 +35,8 @@ class Usuario(Pessoa):
                 file.write(f"ID de Usuário: {self.idUsuario}\n")
                 file.write(f"Senha: {self.senhaId}\n")
                 file.write("\n")
-        except Exception as e:
-            print(f"Erro ao cadastrar usuário: {e}")
+        except Exception as Valor_nao_correspondido:
+            print(f"Erro ao cadastrar usuário: {Valor_nao_correspondido}")
         finally:
             print("Operação de cadastro concluída.")
 
@@ -52,8 +52,8 @@ class Usuario(Pessoa):
                 print("Login bem-sucedido! Usuário autenticado.")
             else:
                 print("Login falhou. ID de usuário ou senha incorretos.")
-        except Exception as e:
-            print(f"Erro ao verificar login: {e}")
+        except Exception as Valor_nao_correspondido:
+            print(f"Erro ao verificar login: {Valor_nao_correspondido}")
         finally:
             print("Operação de verificação de login concluída.")
 
@@ -90,10 +90,10 @@ class Atleta(Usuario):
                     for atributo in atributos:
                         print(atributo)
                     print()
-        except FileNotFoundError as e:
-            print(f"Arquivo de atletas não encontrado: {e}")
-        except Exception as e:
-            print(f"Erro ao exibir atletas: {e}")
+        except FileNotFoundError as Valor_nao_correspondido:
+            print(f"Arquivo de atletas não encontrado: {Valor_nao_correspondido}")
+        except Exception as Valor_nao_correspondido:
+            print(f"Erro ao exibir atletas: {Valor_nao_correspondido}")
         finally:
             print("Operação de exibição de atletas concluída.")
     
@@ -144,21 +144,21 @@ class Equipe:
                         try:
                             key, value = atributo.split(": ")
                             atleta[key] = value
-                        except ValueError as e:
-                            print(f"Erro ao ler o arquivo: {e}")
+                        except ValueError as Valor_nao_correspondido:
+                            print(f"Erro ao ler o arquivo: {Valor_nao_correspondido}")
                     self.atletas.append(atleta)
-        except FileNotFoundError as e:
-            print(f"Arquivo não encontrado: {e}")
+        except FileNotFoundError as Valor_nao_correspondido:
+            print(f"Arquivo não encontrado: {Valor_nao_correspondido}")
 
     def carregarModalidades(self, arquivo):
         try:
             with open(arquivo, 'r') as file:
                 modalidades_data = json.load(file)
                 self.modalidades = modalidades_data
-        except FileNotFoundError as e:
-            print(f"Arquivo de modalidades não encontrado: {e}")
-        except Exception as e:
-            print(f"Erro ao carregar modalidades: {e}")
+        except FileNotFoundError as Valor_nao_correspondido:
+            print(f"Arquivo de modalidades não encontrado: {Valor_nao_correspondido}")
+        except Exception as Valor_nao_correspondido:
+            print(f"Erro ao carregar modalidades: {Valor_nao_correspondido}")
         finally:
             print("Operação de carregamento de modalidades concluída.")
 
@@ -167,8 +167,8 @@ class Equipe:
         with open(arquivo, 'r') as file:
             modalidades_data = json.load(file)
             self.modalidades = modalidades_data
-      except FileNotFoundError as e:
-        print("Arquivo de modalidades não encontrado:{e}")
+      except FileNotFoundError as Valor_nao_correspondido:
+        print("Arquivo de modalidades não encontrado:{Valor_nao_correspondido}")
 
     def exibirModalidades(self):
         print("Modalidades:")
