@@ -9,14 +9,6 @@ import time
 import itertools
 import random
 
-def bloco_de_excessao(norma):
-  while True:
-    try:
-        norma
-        break
-    except:
-      print('Algum valor digitado não corresponde...')
-
 opcao = 0
 
 while opcao != 2:
@@ -41,21 +33,48 @@ while opcao != 2:
   else:
     print("Opção inválida. Por favor, selecione novamente.")
 #iniciar_sistema
-print('Iniciando com um cadastro básico...\n')
-while True:
-  try:
-    nome_usuario = input("Digite o nome: ")
-    idade_usuario = int(input("Digite a idade: "))
-    sexo_usuario = input("Digite o sexo: ")
-    id_usuario = int(input("Digite o ID de usuário: "))
-    senha_usuario = int(input("Digite a senha: "))
-    print('')
-    atleta_usuario = Usuario(nome_usuario, idade_usuario, sexo_usuario, id_usuario, senha_usuario)
-    Usuario.cadastrar(atleta_usuario)
-    Usuario.verificarLogin(atleta_usuario)
-    break
-  except ValueError:
-    print('Valores não correspondem, digite novamente...')
+
+esc = int(input("ESCOLHA:\n[1] Cadastrar\n[2] Login"))
+tem = 0
+if esc == 1:
+
+    while True:
+        tem += 1
+        try:
+            nome_usuario = str(input("Digite o nome: ")).upper()
+            idade_usuario = int(input("Digite a idade: "))
+            sexo_usuario = str(input("Digite o sexo: ")).upper()
+            id_usuario = int(input("Digite o ID de usuário: "))
+            senha_usuario = str(input("Digite a senha: ")).upper()
+
+            cadUsuario = Usuario(nome_usuario, idade_usuario, sexo_usuario, id_usuario, senha_usuario)
+            cadUsuario.cadastrar()
+            os.system('cls')
+
+            print("Usuário cadastrado com sucesso.")
+            
+            break 
+        except Exception as ValorInválido:
+            print(f"Erro ao cadastrar o usuário: {ValorInválido}")
+            os.system('cls')
+
+elif esc == 2:
+  while True:
+    try:
+      id_usuario = int(input("Digite o ID de usuário: "))
+      senha_usuario = str(input("Digite a senha: ")).upper()
+      loginUsuario = Usuario("", 0, "", id_usuario, senha_usuario)
+      loginUsuario.verificarLogin()
+      print("Usuário logado com sucesso.")
+      break
+    except Exception as ValorInválido:
+      print(f"Erro ao verificar o login: {ValorInválido}")
+      os.system('cls')
+
+
+else:
+    print("Opção inválida.")
+
 
 while True:
   try:
